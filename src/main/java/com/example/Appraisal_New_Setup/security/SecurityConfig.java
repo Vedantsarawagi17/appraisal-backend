@@ -77,8 +77,13 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // ALLOW ALL ORIGINS FOR TESTING TO FIX THE 403 FORBIDDEN ERROR
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        // Explicitly allow specific origins
+        configuration.setAllowedOrigins(List.of(
+            "https://appraisal-frontend-nine.vercel.app", 
+            "https://rounding-bleach-folk.ngrok-free.dev",
+            "http://localhost:5173",
+            "http://localhost:3000"
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
