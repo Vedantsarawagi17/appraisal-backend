@@ -57,7 +57,8 @@ jobs:
           script: |
             cd /home/ec2-user/appraisal
             export DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
-            docker compose -f docker-compose.prod.yml pull backend
-            docker compose -f docker-compose.prod.yml up -d --no-deps backend
+            # Removing "backend" and "--no-deps" updates everything:
+            docker compose -f docker-compose.prod.yml pull
+            docker compose -f docker-compose.prod.yml up -d
             docker image prune -f
-            echo "✅ Backend deployed — $(date)"
+            echo "✅ Backend & DB deployed — $(date)"
