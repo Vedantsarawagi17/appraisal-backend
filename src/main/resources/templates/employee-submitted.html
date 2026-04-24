@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .header { background: #007bff; color: white; padding: 15px; text-align: center; border-radius: 8px 8px 0 0; font-size: 20px; font-weight: bold; }
+        .content { padding: 20px; line-height: 1.6; color: #333; }
+        .button { display: inline-block; padding: 10px 20px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        .footer { margin-top: 30px; font-size: 12px; color: #777; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Action Required: Self-Review Submitted 📋
+        </div>
+        <div class="content">
+            <p>Dear <strong th:text="${managerName}">Manager Name</strong>,</p>
+            <p>We are writing to let you know that <strong><span th:text="${employeeName}">Employee Name</span></strong> has successfully completed their Self-Review for the current appraisal cycle.</p>
+            <p>Please log in to the manager portal to review their submission, provide your constructive feedback, and submit your performance ratings.</p>
+
+            <div style="text-align: center;">
+                <a href="http://localhost:3000/manager-dashboard" class="button">Review Appraisal</a>
+            </div>
+
+            <p style="margin-top: 30px;">Best regards,<br><strong>Appraisal Management System</strong></p>
+        </div>
+        <div class="footer">
+            &copy; 2024 Appraisal Management System. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
