@@ -27,8 +27,8 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./psi-appraisal
-          file: ./psi-appraisal/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/psi-appraisal-backend:latest
